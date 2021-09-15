@@ -1,0 +1,22 @@
+<template>
+  <h2>Completed Todos</h2>
+  <ul>
+    <CompletedItem v-for="item in completedList" v-bind:item="item" v-bind:key="item.id"/>
+  </ul>
+</template>
+
+<script>
+  import CompletedItem from "./CompletedItem.vue";
+
+  export default {
+    data() {
+      return {
+        completedList: []
+      }
+    },
+    components: {
+      CompletedItem
+    },
+    props: ['completedItem']
+  }
+</script>
