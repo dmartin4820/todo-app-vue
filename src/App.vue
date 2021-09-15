@@ -1,18 +1,20 @@
 <template>
   <Header/>
-  <TodoList />
-
+  <TodoList/>
+  <CompletedList/>
 </template>
 
 <script>
 import Header from './components/Header/Header.vue';
 import TodoList from './components/Todo/TodoList.vue';
+import CompletedList from './components/Completed/Completed.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    TodoList
+    TodoList,
+    CompletedList
   }
 }
 </script>
