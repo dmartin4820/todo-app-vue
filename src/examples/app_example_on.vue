@@ -1,5 +1,5 @@
 <template>
-  <p>{{ content }}</p>
+  <p> {{ elem.content }} </p>
 </template>
 
 <script>
@@ -7,8 +7,8 @@
     name: 'App',
     data() {
       return {
-        content: 'this is some content stuff',
-      }
+        content: 'this is some content',
+      } 
     }, 
   }
 </script>
@@ -16,6 +16,5 @@
 <style>
   #app {
     display: flex;
-    justify-content: center;
   }
 </style>
