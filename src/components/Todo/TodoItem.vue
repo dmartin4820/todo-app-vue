@@ -2,8 +2,8 @@
   <li id="listItem">
     <div id="todoContainer">
       <p id="todoContent">{{ todo.content }}</p>
-      <button v-bind:id="todo.key" v-on:click="handleCompleted">&#10004;</button>
-      <button v-bind:id="todo.key" v-on:click="handleDelete">&#10007;</button>
+      <button v-bind:id="todo.id" v-on:click="handleCompleted">&#10004;</button>
+      <button v-bind:id="todo.id" v-on:click="handleDelete">&#10007;</button>
     </div>
   </li>
 </template>
