@@ -1,9 +1,12 @@
 <template>
-  <div>
-    <input v-model="input"/>
-    <button v-on:click="handleAdd">Add</button>
+  <div id="list">
+    <h2>Todo List</h2>
     <ul>
-      <TodoItem v-for="todo in todoList" v-bind:todo="todo" v-bind:key="todo.id"/>
+      <TodoItem 
+        v-for="todo in todoList" 
+        v-bind:todo="todo" 
+        v-bind:key="todo.id"
+        v-bind:handleCompleted="handleCompleted"/>
     </ul>
   </div>
 </template>
@@ -12,20 +15,23 @@
 import TodoItem from './TodoItem.vue';
 
   export default {
-    data() {
-      return {
-        input: '',
-        todoList: []
-      }
-    },
-    methods: {
-      handleAdd() {
-        this.todoList.push({id: this.todoList.length, content: this.input});
-        this.input = '';
-      }
-    },
+    props: ['todoList', 'handleCompleted'],
     components: {
       TodoItem
     }
   }
 </script>
+
+<style>
+  #list > h2 {
+    margin-bottom: 30px;
+  }
+
+  #list > input {
+    margin: 5px;
+  }
+
+  #list > button {
+    padding: 2px;
+  }
+</style>
