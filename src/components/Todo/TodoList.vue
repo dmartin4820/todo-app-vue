@@ -6,7 +6,8 @@
         v-for="todo in todoList" 
         v-bind:todo="todo" 
         v-bind:key="todo.id"
-        v-bind:handleCompleted="handleCompleted"/>
+        v-bind:handleCompleted="handleCompleted"
+        v-bind:handleDelete="handleDelete"/>
     </ul>
   </div>
 </template>
@@ -15,7 +16,7 @@
 import TodoItem from './TodoItem.vue';
 
   export default {
-    props: ['todoList', 'handleCompleted'],
+    props: ['todoList', 'handleCompleted', 'handleDelete'],
     components: {
       TodoItem
     }

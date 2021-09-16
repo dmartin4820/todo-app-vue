@@ -3,8 +3,12 @@
   <input v-model="todoInput"/>
   <button v-on:click="handleAdd">Add</button>
   <div id="container">
-    <TodoList v-bind:todoList="todoList" v-bind:handleCompleted="handleCompleted"/>
-    <CompletedList v-bind:completedList="completedList"/>
+    <TodoList 
+      v-bind:todoList="todoList" 
+      v-bind:handleCompleted="handleCompleted"
+      v-bind:handleDelete="handleDelete"/>
+    <CompletedList 
+      v-bind:completedList="completedList"/>
   </div>
 </template>
 
@@ -22,13 +26,21 @@ export default {
       completedList: [],
     }
   },
+  components: {
+    Header,
+    TodoList,
+    CompletedList
+  },
   methods: {
+    handleDelete(e) {
+      this.todoList = this.todoList.filter(item => item.id !== Number(e.target.id));
+    },
     handleAdd() {
       this.todoList.push({id: this.todoList.length, content: this.todoInput});
       this.todoInput = '';
     },
     handleCompleted(e) {
-      this.todoList = this.todoList.filter((item) => {
+      this.todoList = this.todoList.filter(item => {
         if (item.id === Number(e.target.id)) {
           this.completedList.push(item);
           return false;
@@ -38,11 +50,6 @@ export default {
       })
     }
   },
-  components: {
-    Header,
-    TodoList,
-    CompletedList
-  }
 }
 </script>
 
