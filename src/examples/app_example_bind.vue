@@ -1,5 +1,6 @@
 <template>
   <p v-bind:class="className">{{ content }}</p>
+  <button v-on:click="handleClick">Change Border Color</button>
 </template>
 
 <script>
@@ -10,6 +11,13 @@
         content: 'this is some content',
         className: 'greenBorder'
       }  
+    },
+    methods: {
+      handleClick() {
+        this.className = this.className === 'greenBorder'
+          ? 'redBorder' 
+          : 'greenBorder'
+      }
     } 
   }
 </script>

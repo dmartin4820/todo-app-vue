@@ -1,5 +1,6 @@
 <template>
-  <p> {{ elem.content }} </p>
+  <p> {{ content }} </p>
+  <button v-on:click="handleClick">Click me</button>
 </template>
 
 <script>
@@ -10,11 +11,16 @@
         content: 'this is some content',
       } 
     }, 
+    methods: {
+      handleClick () {
+        this.content = 'this content changed'
+      }
+    }
   }
 </script>
 
 <style>
   #app {
-    display: flex;
+    font-size: 72px;
   }
 </style>
