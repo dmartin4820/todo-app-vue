@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import CompletedItem from "./CompletedItem.vue";
+  import CompletedItem from "./CompletedItem.vue"
 
   export default {
     props: ['completedList'], 
